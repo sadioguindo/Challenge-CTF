@@ -1,0 +1,8 @@
+[ALERT] [**] [1:1000001:1] TCP Port Scan Detected [**] 
+[Classification: Attempted Information Leak] [Priority: 2] 
+04/03-17:18:35.123456 192.168.56.101 -> 192.168.56.1 
+TCP TTL:64 TOS:0x0 ID:0 IpLen:20 DgmLen:40 
+******S* Seq: 0x0  Ack: 0x0  Win: 0x0  TcpLen: 20
+
+[NOTE] Activité inhabituelle repérée à l’adresse IP de l'analyste SOC en poste à TicketEasy.
+➡️ Le joueur identifie un port scan et fait le lien avec l'entreprise TicketEasy mentionnée.

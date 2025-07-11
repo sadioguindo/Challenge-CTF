@@ -1,0 +1,3 @@
+Tu viens de marcher dans les pas de Sadio. Voici qui elle est.
+
+CV : ./cv/CV_Sadio_Analyste.pdf
