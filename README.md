@@ -116,9 +116,8 @@ python scripts/alert_parser.py
 
 ```text
 Tu viens de marcher dans les pas de Sadio. Voici qui elle est.
-CV : ./cv/CV_Sadio_Analyste.pdf
+"Complète le formulaire final.html pour découvrir la suite de l’aventure…
 
-🎉 Félicitations ! Tu as complété le challenge.
 ```
 
 ---
