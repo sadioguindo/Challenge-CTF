@@ -1,0 +1,10 @@
+Voici un extrait d’un journal d’activité :
+
+[12:04:55] Ping reçu de 192.168.1.12
+[12:05:01] Connexion entrante : 91.205.174.22
+[12:05:05] Fichier reçu : rapport_BH7T812z.pdf
+[12:05:12] Analyse de menace en cours...
+[12:05:15] Signature SHA256 : 5d41402abc4b2a76b9719d911017c592
+[12:05:20] Note : le fichier contient la mention "U***v***e P**** 8"
+
+Indice : pour trouver la trace de Sadio, commence par là où elle s’est formée...
