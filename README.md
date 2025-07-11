@@ -38,7 +38,7 @@ challenge_cybersec/
 
 ## Étapes du Challenge
 
-### Étape 1 – Reconnaissanc
+### Étape 1 – Reconnaissance
 
 Fouille dans les fichiers pour trouver un indice de départ.
 
@@ -54,7 +54,7 @@ Lis le fichier `logs/intrusion_alert_01.log`.
 
 Corrèle cette information à l’entreprise **TicketEasy** pour avancer.
 
-Repère les mots-clés comme `ALERT`, `Port Scan`, `IP`, `Classification`, etc.
+Repère les mots-clés comme `ALERT`, `Port Scan`, `IP` etc.
 
 
 ---
@@ -66,13 +66,13 @@ Tu as trouvé un hash dans `hashes/clue1.hash` ?
 Contenu :
 
 ```text
-U2FkaW8=
+U2FkaW8gcmVjaGVyY2hlIHVuZSBhbHRlcm5hbmNlIGVuIGFuYWx5c3RlIHNvYw==
 ```
 
 Décode-le avec la commande suivante :
 
 ```bash
-echo U2FkaW8= | base64 -d
+[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("U2FkaW8gcmVjaGVyY2hlIHVuZSBhbHRlcm5hbmNlIGVuIGFuYWx5c3RlIHNvYw=="))
 ```
 
 
@@ -87,7 +87,7 @@ Complète les deux lignes suivantes :
 # Script d’analyse simple de logs SOC
 
 def parse_log(filename):
-    with open(filename, "r") as f:
+    with open(filename, "r", encoding="latin-1", errors="ignore") as f:
         lines = f.readlines()
 
     alerts = []
@@ -99,7 +99,7 @@ def parse_log(filename):
     return alerts
 
 if __name__ == "__main__":
-    results = parse_log("logs/intrusion_alert_01.log")
+    alerts, note = parse_log("../logs/intrusion_alert_01.log")
     for r in results:
         print(" Alerte détectée :", r)
 ```
