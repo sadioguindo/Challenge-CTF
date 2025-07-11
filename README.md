@@ -1,7 +1,7 @@
-#  Challenge CTF – Dans les pas d’une Analyste Cybersécurité
+# Challenge CTF – Dans les pas d’une Analyste Cybersécurité
 
-Bienvenue dans un mini-CTF (Capture The Flag) immersif !  
-Tu vas marcher dans les pas de **Sadio**, analyste cybersécurité chez **Junior**, à travers une série d’étapes interactives inspirées de son quotidien.
+Bienvenue dans ce mini-CTF immersif !  
+Tu vas marcher dans les pas de **Sadio**, développeuse IA chez **TicketEasy**, à travers une série d’étapes inspirées de son quotidien en cybersécurité.
 
 ---
 
@@ -19,40 +19,33 @@ Ton objectif est de :
 
 ## 🗂️ Arborescence du projet
 
+```text
 challenge_cybersec/
-│
 ├── logs/
-│ └── intrusion_alert_01.log ← Fichier d’alerte IDS (Snort/Suricata)
-│
+│   └── intrusion_alert_01.log        # Log d’alerte (Snort-like)
 ├── scripts/
-│ └── alert_parser.py ← Script Python à compléter
-│
+│   └── alert_parser.py               # Script Python à compléter
 ├── hashes/
-│ └── clue1.hash ← Indice encodé en base64
-│
+│   └── clue1.hash                    # Indice encodé (Base64)
 ├── cv/
-│ └── CV_Sadio_Analyste.pdf ← Récompense finale (CV complet)
-│
-├── flag.txt ← Message final
-├── README.md ← Ce fichier
-└── start.sh ← (Optionnel) Script de lancement
-
-yaml
-Copier
-Modifier
+│   └── CV_Sadio_Analyste.pdf         # Récompense finale
+├── flag.txt                          # Message final
+├── start.sh                          # Script Bash de lancement 
+└── README.md                         # Ce fichier
+```
 
 ---
 
-## 🔍 Étapes du Challenge
+## Étapes du Challenge
 
-### 🧭 Étape 1 – Reconnaissance
+### Étape 1 – Reconnaissanc
+
 Fouille dans les fichiers pour trouver un indice de départ.
 
 > Astuce : fouille les logs ou les encodages.
 
----
+###  Étape 2 – Analyse d'incident
 
-### 🔎 Étape 2 – Analyse d'incident
 Lis le fichier `logs/intrusion_alert_01.log`.
 
 > Que s’est-il passé ?  
@@ -61,64 +54,100 @@ Lis le fichier `logs/intrusion_alert_01.log`.
 
 Corrèle cette information à l’entreprise **TicketEasy** pour avancer.
 
+Repère les mots-clés comme `ALERT`, `Port Scan`, `IP`, `Classification`, etc.
+
+
 ---
 
-### 🧮 Étape 3 – Décryptage
+###  Étape 2 – Décryptage
+
 Tu as trouvé un hash dans `hashes/clue1.hash` ?
 
+Contenu :
+
+```text
 U2FkaW8=
+```
 
-bash
-Copier
-Modifier
-
-Utilise :
+Décode-le avec la commande suivante :
 
 ```bash
 echo U2FkaW8= | base64 -d
-🐍 Étape 4 – Script Python à compléter
-Fichier : scripts/alert_parser.py
-Complète les 2 lignes manquantes dans ce parser :
+```
 
-python
-Copier
-Modifier
-# Ligne manquante 1
-alert_type = line.split("]")[2].strip()
 
-# Ligne manquante 2
-alerts.append(alert_type)
-Puis exécute le script :
 
-bash
-Copier
-Modifier
+---
+
+### Étape 3 – Script Python
+
+Complète les deux lignes suivantes :
+
+```python
+# Script d’analyse simple de logs SOC
+
+def parse_log(filename):
+    with open(filename, "r") as f:
+        lines = f.readlines()
+
+    alerts = []
+    for line in lines:
+        if "ALERT" in line:
+            # Ligne manquante 1 : extraire la description de l’alerte
+            # Ligne manquante 2 : ajouter cette alerte à la liste
+
+    return alerts
+
+if __name__ == "__main__":
+    results = parse_log("logs/intrusion_alert_01.log")
+    for r in results:
+        print(" Alerte détectée :", r)
+```
+
+Puis exécute :
+
+```bash
 python scripts/alert_parser.py
-🏁 Étape 5 – Révélation finale
-Le fichier flag.txt s’affiche :
+```
 
-bash
-Copier
-Modifier
+---
+
+###  Étape 4 – Révélation finale
+
+```text
 Tu viens de marcher dans les pas de Sadio. Voici qui elle est.
 CV : ./cv/CV_Sadio_Analyste.pdf
+
 🎉 Félicitations ! Tu as complété le challenge.
+```
 
-💡 À propos
-Ce challenge a été conçu comme un CV interactif pour mettre en valeur les compétences techniques et l’esprit d’analyse de Sadio, analyste cybersécurité spécialisée en IA.
+---
 
-📫 Contact : LinkedIn de Sadio
-🔐 GitHub : https://github.com/sadioguindo/challenge-CTF
+## 🧠 Technologies utilisées
 
-✅ Technologies utilisées
-Python 3
+- Python 3
+- Fichier log (type IDS)
+- Encodage Base64
+- Bash
 
-Snort / IDS Logs (format simplifié)
+---
 
-base64, hash
+## 👩🏽‍💻 À propos de Sadio
 
-GitHub Pages / README interactif
+**Sadio Guindo** est développeuse IA chez **TicketEasy**  
+Elle combine **cybersécurité**, **automatisation** et **analyse de logs** dans un environnement SOC.
 
-✨ Licence
+---
+
+##  Licence
+
 Ce projet est libre pour usage personnel, professionnel ou pédagogique.
 Fais-en bon usage… ou inspire-toi pour créer ton propre CV-challenge !
+
+---
+
+## 📫 Contact
+
+**Sadio Guindo**  
+📧 sadioguindo560@gmail.com  
+🌐 [LinkedIn](https://www.linkedin.com/in/sadioguindo) 
